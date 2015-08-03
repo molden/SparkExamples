@@ -50,6 +50,10 @@ create 'test', 'cf'
 put 'test', 'row1', 'cf:a', 'value1'
 put 'test', 'row2', 'cf:b', 'value2'
 ```
+exit hbase shell
+```bash
+quit
+```
 
 check table content
 
