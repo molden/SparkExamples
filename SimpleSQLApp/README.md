@@ -50,15 +50,25 @@ create 'test', 'cf'
 put 'test', 'row1', 'cf:a', 'value1'
 put 'test', 'row2', 'cf:b', 'value2'
 ```
-exit hbase shell
-```bash
-quit
-```
 
 check table content
 
 ```bash
 scan 'test'
+```
+exit hbase shell
+```bash
+quit
+```
+
+It is also possible to import data from a HBase dump.
+```bash
+hbase org.apache.hadoop.hbase.mapreduce.Import <tablename> <inputdir>
+```
+By the way when your job finishes your created HBase table is gone. So if you want to save the data in you HBase table you should make an export. In another job you can import this data and continue working on it.
+
+```bash
+hbase org.apache.hadoop.hbase.mapreduce.Export <tablename> <outputdir> 
 ```
 
 ### Submit the App
