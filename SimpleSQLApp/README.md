@@ -10,11 +10,14 @@ Go to the folder where SimpleSQLApp is located.
 cd $PATH_TO_SPARK_EXAMPLES/SimpleSQLApp
 ```
 ```bash
+module use $VSC_CLUSTER_APPS_2014a/../../../../../etc/modulefiles/
 module load Java/1.7.0_51
 module load Maven/3.3.3
 mvn package
 ```
 This will create a target folder with a jar file in it.
+
+Note: In the case you don't have these modules available basically these module loads will set the environment variable JAVA_HOME and add the Maven binaries to your PATH.
   
 ##Use
 
@@ -31,6 +34,7 @@ module load HBase/0.98.13
 export HADOOP_CONF_DIR=$PBS_O_WORKDIR/hadoop-conf.$PBS_JOBID
 myhadoop-configure.sh -s $VSC_SCRATCH_NODE/$USER/$PBS_JOBID
 ```
+Note: These module loads will set $HADOOP_HOME, SPARK_HOME and HBASE_HOME and add the Hadoop, Spark and HBase binaries to the PATH. For use of myhadoop you can have a look on https://github.com/molden/myhadoop/tree/hbase .
   
 ###Start Hadoop
 
